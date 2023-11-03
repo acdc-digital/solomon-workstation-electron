@@ -1,4 +1,4 @@
-# ![ACDC Solomon Logo](assets/logo-A.textv2.svg)
+# ![ACDC Solomon Logo](assets/logo-Av2.svg)
 
 Legacy ReadMe is in the Wiki. 
 
