@@ -1,0 +1,57 @@
+{
+  "name": "solomon-app",
+  "version": "0.1.0",
+  "description": "A chat and document management application built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acdc-digital/solomon-electron.git"
+  },
+  "keywords": [
+    "artificial-intellegence",
+    "ai",
+    "document-management",
+    "electron",
+    "solomon",
+    "manager",
+    "file-system",
+    "collaboration",
+    "productivity",
+    "note-taking",
+    "notes",
+    "chat",
+    "vdfs",
+    "file-management-system",
+    "drive",
+    "cloud",
+    "hub",
+    "security"
+  ],
+  "author": "Matthew Simon <msimon@acdc.digital>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acdc-digital/solomon-electron/issues"
+  },
+  "homepage": "https://github.com/acdc-digital/solomon-electron#readme",
+  "devDependencies": {
+    "@types/react": "18.2.34",
+    "concurrently": "^8.2.2",
+    "electron": "^27.0.3",
+    "electron-is-dev": "^2.0.0",
+    "typescript": "5.2.2",
+    "wait-on": "^7.1.0"
+  },
+  "dependencies": {
+    "next": "^14.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
