@@ -1,7 +1,5 @@
 # ![ACDC Solomon Logo](assets/logo-Av2.svg)
 
-Legacy ReadMe is in the Wiki. 
-
 **ACDC.digital is an artifical-intellegence research agency putting our adopted learning into practice to enable small businesses insights to advantages they wouldn't have known about otherwise.**
 
 **Introduces:** 
