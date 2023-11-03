@@ -1,0 +1,26 @@
+# MASTER-CODEBLOCK
+##################################
+
+customtkinter
+deeplake[enterprise]
+fastapi
+langchain
+nltk
+openai
+packaging 
+pandas
+pdfminer
+pdfminer.six
+Pillow
+plotly
+PyMuPDF
+python-dotenv
+scikit-learn
+tiktoken
+tk
+torch
+transformers
+tqdm
+uvicorn
+
+# Tkinder is a Python package, ensure the latest package is installed to ensure it includes the tk setup. 
