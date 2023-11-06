@@ -11,8 +11,6 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: false, // It's recommended to set this to false and use contextIsolation
       contextIsolation: true,  // This should be set to true to avoid security issues
-      preload: path.join(__dirname, 'preload.js'), // If you need to preload some scripts
-      // Additional options may be required for your specific use case
     },
   });
 
@@ -73,5 +71,3 @@ app.on('window-all-closed', () => {
   }
 });
 
-// You would also need a 'preload.js' if you use contextIsolation: true,
-// where you can use contextBridge to expose some API to your renderer process

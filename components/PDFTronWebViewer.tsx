@@ -4,25 +4,32 @@ const PDFTronWebViewer = ({ initialDoc }) => {
   const viewer = useRef(null);
 
   useEffect(() => {
-    let instance;
-    // Dynamically import the 'WebViewer' because it's not server-side renderable
-    import('@pdftron/webviewer').then((WebViewer) => {
-      instance = WebViewer.default({
-        path: '/webviewer/lib',
-        licenseKey: 'demo:1699180588093:7cc4c39103000000003cabc8000676a4df2978ec98a297264c41f1f7e5',
-        initialDoc,
-      }, viewer.current).then((instance) => {
-        // Now you can use the WebViewer instance and the docViewer API
+    let instance; // Define instance here so it's available in both the initializeViewer and cleanup function
+
+    async function initializeViewer() {
+      try {
+        const WebViewer = await import('@pdftron/webviewer');
+        instance = await WebViewer.default({
+          path: '/webviewer/lib',
+          licenseKey: 'insert-license-key-here', // Make sure to use the actual license key
+          initialDoc,
+        }, viewer.current);
+
         const { docViewer } = instance;
         docViewer.on('documentLoaded', () => {
           console.log('Document loaded');
         });
         // other event handlers and API calls
-      });
-    });
+      } catch (error) {
+        console.error('Error initializing PDFTron WebViewer', error);
+      }
+    }
+
+    initializeViewer();
 
     // Cleanup function if the component unmounts
     return () => {
+      // Dispose of the WebViewer instance
       if (instance) {
         instance.dispose();
       }
@@ -35,3 +42,4 @@ const PDFTronWebViewer = ({ initialDoc }) => {
 };
 
 export default PDFTronWebViewer;
+
