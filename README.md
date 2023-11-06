@@ -37,7 +37,6 @@ For years, we've had the privilege of helping small businesses like yours take t
 
 ## Our Architecture
 
->>>>>>> 54575f5045acd9815640b94c0ea9f3585202711e
 [![Python](https://img.shields.io/badge/Python-%233776AB.svg?style=flat-round&logo=python&logoColor=white)](https://www.python.org/)
 [![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=flat-round&logo=React&logoColor=white)](https://react.dev/)
 [![Clerk/Supabase](https://img.shields.io/badge/Clerk%2FSupabase-%23181818.svg?style=flat-round&logo=Supabase&logoColor=white)](https://supabase.io/)
