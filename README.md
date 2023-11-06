@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ![ACDC Solomon Logo](assets/logo-A.textv2.svg)
 
 Legacy ReadMe is in the Wiki. 
