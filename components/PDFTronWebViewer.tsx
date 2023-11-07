@@ -4,43 +4,43 @@ const PDFTronWebViewer = ({ initialDoc }) => {
   const viewer = useRef(null);
 
   useEffect(() => {
-    let instance; // Define instance here so it's available in both the initializeViewer and cleanup function
+    let instance;
 
-    async function initializeViewer() {
+    // This function should be defined outside of the initializeViewer function.
+    const initializeViewer = async () => {
       try {
         const WebViewer = await import('@pdftron/webviewer');
         instance = await WebViewer.default({
           path: '/webviewer/lib',
-          licenseKey: 'insert-license-key-here', // Make sure to use the actual license key
+          licenseKey: 'insert-license-key-here', // Make sure to use your actual license key
           initialDoc,
         }, viewer.current);
 
-        const { docViewer } = instance;
-        docViewer.on('documentLoaded', () => {
+        instance.docViewer.on('documentLoaded', () => {
           console.log('Document loaded');
         });
-        // other event handlers and API calls
+        // Add other event handlers and API calls as needed
       } catch (error) {
         console.error('Error initializing PDFTron WebViewer', error);
       }
-    }
+    };
 
     initializeViewer();
 
-    // Cleanup function if the component unmounts
+    // Cleanup function
     return () => {
-      // Dispose of the WebViewer instance
-      if (instance) {
+      // Check if the dispose function exists before calling it
+      if (instance && typeof instance.dispose === 'function') {
         instance.dispose();
       }
     };
-  }, [initialDoc]);
+  }, [initialDoc]); // Ensure the effect runs again if initialDoc changes
 
   return (
-    // For the PDFTronWebViewer component
     <div className="webviewer" ref={viewer} style={{ height: '100%', width: '100%', margin: 0, padding: 0, overflow: 'hidden' }}></div>
   );
 };
 
 export default PDFTronWebViewer;
+
 

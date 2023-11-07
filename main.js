@@ -9,7 +9,7 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: false, // It's recommended to set this to false and use contextIsolation
+      nodeIntegration: true, // It's recommended to set this to false and use contextIsolation
       contextIsolation: true,  // This should be set to true to avoid security issues
     },
   });

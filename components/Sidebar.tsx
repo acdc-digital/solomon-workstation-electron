@@ -1,12 +1,13 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Logo from '/Users/matthewsimon/Desktop/acdc.electron/public/logo-Av2.svg';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import FolderIcon from '@mui/icons-material/FolderRounded'; // Rounded icon
-import HomeIcon from '@mui/icons-material/HomeRounded'; // Rounded icon
-import StorageIcon from '@mui/icons-material/StorageRounded'; // Rounded icon
+import FolderIcon from '@mui/icons-material/FolderRounded'; 
+import HomeIcon from '@mui/icons-material/HomeRounded'; 
+import StorageIcon from '@mui/icons-material/StorageRounded'; 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,6 +16,7 @@ import { styled } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountTreeRounded from '@mui/icons-material/AccountTreeRounded'; 
+import Link from 'next/link';
 
 // Define the width of the drawer
 const drawerWidth = 185;
@@ -75,6 +77,12 @@ const SidebarSectionHeading = styled(Typography)(({ theme }) => ({
 
 const Sidebar = () => {
   const [open, setOpen] = React.useState(true);
+  const router = useRouter(); // Hook to access the router
+
+  // Function to handle click event for the Documents button
+  const handleDocumentsClick = () => {
+    router.push('/LocalIndex/LocalIndex'); // Adjust the path as necessary
+  };
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -84,8 +92,14 @@ const Sidebar = () => {
         open={open}
       >
         <Toolbar>
-        <img src="/logo-Av2.svg" alt="Logo" style={{ height: 'auto', maxWidth: '105%', marginLeft: -10 }} />
+    <Link href="/" passHref> {/* Use Link to wrap the image */}
+    <a style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <img src="/logo-Av2.svg" alt="Logo" style={{ height: 'auto', maxWidth: '105%', marginLeft: -10 }} />
+    </a>
+    </Link>
         </Toolbar>
+
+        
         <Divider sx={{ backgroundColor: 'grey' }} />
 
         <List>
@@ -116,7 +130,7 @@ const Sidebar = () => {
 
         <List>
         <SidebarSectionHeading sx={{ paddingLeft: '16px' }}>Location</SidebarSectionHeading>
-          <CustomListItemButton sx={{ mb: 2 }} >
+          <CustomListItemButton onClick={handleDocumentsClick} >
             <ListItemIcon>
               <FolderIcon fontSize='small' sx={{ color: '#2383FD' }} />
             </ListItemIcon>
