@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -58,6 +58,15 @@ const ChatComponent = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const handleSendMessage = async () => {
     const trimmedInput = userInput.trim();
@@ -102,6 +111,7 @@ const ChatComponent = () => {
             {msg.content}
           </MessageItem>
         ))}
+        <div ref={messagesEndRef} /> {/* Invisible element to scroll to */}
       </MessageList>
       <InputArea>
         <StyledInputBase
