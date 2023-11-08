@@ -20,7 +20,7 @@ export default function Home() {
       </Box>
 
       {/* Chat column */}
-      <Box sx={{ width: 350, height: '100%', flexShrink: 0, zIndex: 10, overflow: 'hidden' }}>
+      <Box sx={{ width: 465, height: '100%', flexShrink: 0, zIndex: 10, overflow: 'hidden' }}>
         <Chat />
       </Box>
     </Box>
