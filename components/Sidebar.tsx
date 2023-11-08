@@ -84,6 +84,15 @@ const Sidebar = () => {
     router.push('/LocalIndex/LocalIndex'); // Adjust the path as necessary
   };
 
+// Placeholder function for creating a new directory
+  // In a real Electron app, you would use IPC here
+  const createNewDirectory = () => {
+    const newDirPath = 'path/to/new/directory'; // Replace with the desired new directory path
+    // Implement Electron IPC call here to send newDirPath to the main process
+    console.log(`Request to create new directory at: ${newDirPath}`);
+    // ipcRenderer.send('create-new-directory', newDirPath); // Uncomment this line in Electron app
+  };
+
   return (
     <Box sx={{ display: 'flex' }}>
       <AppDrawer
@@ -141,6 +150,13 @@ const Sidebar = () => {
 
         <List>
         <SidebarSectionHeading sx={{ paddingLeft: '16px' }}>Projects</SidebarSectionHeading>
+        {/* New button for creating a directory */}
+        <CustomListItemButton onClick={createNewDirectory}>
+            <ListItemIcon>
+              <FolderIcon fontSize='small' sx={{ color: '#2383FD' }} />
+            </ListItemIcon>
+            <ListItemText primary="New Index" primaryTypographyProps={{ fontSize: '0.875rem' }} />
+          </CustomListItemButton>
           <CustomListItemButton>
           <ListItemIcon >
           <AccountTreeRounded fontSize="small" sx={{ color: '#2383FD' }} /> 

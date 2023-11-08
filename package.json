@@ -42,6 +42,8 @@
   },
   "homepage": "https://github.com/acdc-digital/solomon-electron#readme",
   "devDependencies": {
+    "@types/next": "^9.0.0",
+    "@types/node": "^20.9.0",
     "@types/react": "18.2.34",
     "concurrently": "^8.2.2",
     "electron": "^27.0.3",
@@ -60,6 +62,7 @@
     "fs": "^0.0.1-security",
     "mime-types": "^2.1.35",
     "next": "^14.0.1",
+    "openai": "^4.16.1",
     "pdfjs-dist": "^4.0.189",
     "promises": "^0.2.5",
     "pspdfkit": "^2023.4.6",
