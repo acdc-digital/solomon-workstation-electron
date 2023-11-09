@@ -2,9 +2,11 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import openai
+from openai import OpenAI
+client = OpenAI()
 
-openai.api_key = "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"
+# Ideally, use environment variables for this.
+openai.api_key = "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"
 
 app = FastAPI()
 
@@ -27,10 +29,20 @@ class ChatRequest(BaseModel):
 
 @app.post("/chat/")
 async def chat(chat_request: ChatRequest):
-    # For testing, return a fixed response without calling OpenAI
-    return {"response": "Test response without calling OpenAI"}
+    try:
+        completion = client.chat.completion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello!"}
+  ]
+)
+        
+        response_text = completion.choices[0].text.strip()
+        return {"response": response_text}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the chatbot API!"}
-
